@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIN-TEL GeoSuite PRO v26 | Software Profesional de Geomática</title>
+    <meta name="description" content="Suite profesional de herramientas geomáticas para agrimensores, ganaderos y profesionales del campo. +8 años de experiencia. $129 USD">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0f1c;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 211, 147, 0.15), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(139, 92, 246, 0.1), transparent);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(16, 211, 147, 0.2), rgba(5, 150, 105, 0.2));
+            border: 1px solid rgba(16, 211, 147, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #10d393;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, #10d393);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10d393, #059669);
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 211, 147, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 211, 147, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, rgba(16, 211, 147, 0.15), rgba(5, 150, 105, 0.1));
+            border: 2px solid #10d393;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .price-tag .old-price {
+            font-size: 24px;
+            color: #94a3b8;
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+        
+        .price-tag .current-price {
+            font-size: 64px;
+            font-weight: 900;
+            color: #10d393;
+            margin-bottom: 10px;
+        }
+        
+        .price-tag .currency {
+            font-size: 32px;
+        }
+        
+        .price-tag .price-note {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-top: 15px;
+        }
+        
+        .features-section {
+            padding: 100px 20px;
+            background: #0f1419;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #10d393);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(20, 30, 50, 0.8), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: #10d393;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 211, 147, 0.2);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10d393, #059669);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .feature-desc {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        
+        .comparison-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0f1c 0%, #16213e 100%);
+        }
+        
+        .comparison-table {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(20, 30, 50, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, rgba(16, 211, 147, 0.2), rgba(5, 150, 105, 0.2));
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .price-cell {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        .price-cell.expensive {
+            color: #f87171;
+        }
+        
+        .price-cell.cheap {
+            color: #10d393;
+        }
+        
+        .testimonials-section {
+            padding: 100px 20px;
+            background: #0f1419;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(20, 30, 50, 0.8), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10d393, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3px;
+        }
+        
+        .author-title {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        
+        .cta-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #10d393 0%, #059669 100%);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-section .btn {
+            background: white;
+            color: #059669;
+        }
+        
+        .cta-section .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .faq-section {
+            padding: 100px 20px;
+            background: #0a0f1c;
+        }
+        
+        .faq-item {
+            background: rgba(20, 30, 50, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(16, 211, 147, 0.05);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: #94a3b8;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+        
+        footer {
+            background: #050a12;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #10d393, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact {
+            margin: 30px 0;
+            font-size: 16px;
+            color: #94a3b8;
+        }
+        
+        .footer-contact a {
+            color: #10d393;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer-social {
+            margin: 30px 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: rgba(16, 211, 147, 0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: #10d393;
+            font-size: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: #10d393;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-copy {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ✨ Lanzamiento Especial 2025
+                </div>
+                
+                <h1>WIN-TEL<br>GeoSuite PRO</h1>
+                
+                <p class="hero-subtitle">
+                    Suite profesional de herramientas geomáticas para agrimensores, ganaderos y profesionales del campo. <strong>+8 años de experiencia</strong> ofreciendo soluciones tecnológicas de vanguardia.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#comprar" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>
+                        Comprar Ahora
+                    </a>
+                    <a href="#demo" class="btn btn-secondary" onclick="openDemoModal(); return false;">
+                        <i class="fas fa-play-circle"></i>
+                        Ver Demo
+                    </a>
+                </div>
+                
+                <div class="price-tag" id="comprar">
+                    <div class="old-price">$549</div>
+                    <div class="current-price">
+                        <span class="currency">$</span>129
+                    </div>
+                    <div class="price-note">
+                        🔥 Precio de lanzamiento | Licencia única de por vida<br>
+                        💳 Pago único, sin mensualidades
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">40+ Herramientas Profesionales</h2>
+            <p class="section-subtitle">
+                Todo lo que necesitas para trabajos de topografía, agrimensura y gestión agropecuaria en una sola aplicación
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📐</div>
+                    <h3 class="feature-title">Memorial Descriptivo</h3>
+                    <p class="feature-desc">Genera documentos legales automáticos con coordenadas UTM, áreas, perímetros y tabla de vértices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔪</div>
+                    <h3 class="feature-title">Subdivisión Inteligente</h3>
+                    <p class="feature-desc">Divide terrenos por área exacta, cantidad de lotes o de forma personalizada con precisión geodésica.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Botalones y Cercas</h3>
+                    <p class="feature-desc">Calcula automáticamente puntos de cercado, detecta lados compartidos y genera presupuestos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Diseño Radial</h3>
+                    <p class="feature-desc">Crea lotes radiales perfectos para potreros de rotación PRV con centro común.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛰️</div>
+                    <h3 class="feature-title">6 Mapas Base</h3>
+                    <p class="feature-desc">Google Satélite, Híbrido, ESRI, CartoDB Dark/Voyager y OpenStreetMap.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3 class="feature-title">Análisis Solar</h3>
+                    <p class="feature-desc">Calcula trayectoria del sol, sombras proyectadas y orientación óptima de construcciones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⛰️</div>
+                    <h3 class="feature-title">Perfil de Elevación</h3>
+                    <p class="feature-desc">Analiza altimetría de líneas, calcula pendientes y genera curvas de nivel.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3 class="feature-title">Radar Urbano</h3>
+                    <p class="feature-desc">Detecta servicios cercanos: escuelas, hospitales, comercios y parques.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3 class="feature-title">Exportación Múltiple</h3>
+                    <p class="feature-desc">PDF, DXF (AutoCAD), KML (Google Earth), GeoJSON (QGIS), CSV, GPX.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Interfaz Profesional</h3>
+                    <p class="feature-desc">Diseño moderno, modo oscuro/claro, atajos de teclado y flujo optimizado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3 class="feature-title">Coordenadas UTM</h3>
+                    <p class="feature-desc">Conversión bidireccional, múltiples zonas, precisión geodésica.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3 class="feature-title">Sistema de Proyectos</h3>
+                    <p class="feature-desc">Guarda y carga trabajos, historial completo, deshacer/rehacer ilimitado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué WIN-TEL?</h2>
+            <p class="section-subtitle">
+                Comparación con software profesional del mercado
+            </p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Software</th>
+                            <th>Precio</th>
+                            <th>Modelo</th>
+                            <th>Instalación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AutoCAD Civil 3D</strong></td>
+                            <td class="price-cell expensive">$2,170/año</td>
+                            <td>Suscripción</td>
+                            <td>Windows/Mac</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Global Mapper</strong></td>
+                            <td class="price-cell expensive">$549</td>
+                            <td>Licencia</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ArcGIS Pro</strong></td>
+                            <td class="price-cell expensive">$700/año</td>
+                            <td>Suscripción</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TopoCAD</strong></td>
+                            <td class="price-cell expensive">€1,200</td>
+                            <td>Licencia</td>
+                            <td>Windows</td>
+                        </tr>
+                        <tr style="background: rgba(16, 211, 147, 0.1);">
+                            <td><strong>🚀 WIN-TEL GEOMATICS PRO</strong></td>
+                            <td class="price-cell cheap">$129</td>
+                            <td><strong>Licencia única</strong></td>
+                            <td><strong>Web (cualquier PC)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Lo Que Dicen Nuestros Usuarios</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Excelente herramienta para trabajos topográficos. La función de subdivisión me ahorra horas de cálculos manuales. Totalmente recomendado."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info">
+                            <div class="author-name">José Martínez</div>
+                            <div class="author-title">Ingeniero Topógrafo</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "El cálculo de botalones es increíblemente preciso. Ya no tengo que usar 3 programas diferentes. Todo en uno, muy profesional."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CR</div>
+                        <div class="author-info">
+                            <div class="author-name">Carlos Rodríguez</div>
+                            <div class="author-title">Agrimensor</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Perfecto para gestión de fincas ganaderas. El diseño radial para potreros PRV es justo lo que necesitaba. Inversión que se paga sola."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MG</div>
+                        <div class="author-info">
+                            <div class="author-name">María González</div>
+                            <div class="author-title">Productora Agropecuaria</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Adquiere WIN-TEL GEOMATICS PRO Hoy</h2>
+            <p>Licencia única de por vida | Sin mensualidades | Actualizaciones incluidas</p>
+            
+            <a href="/cdn-cgi/l/email-protection#83f4eaede7ecf4f0f7e6efe6e0eceec3e4eee2eaefade0eceebcf0f6e1e9e6e0f7bec0eceef3f1e2a6b1b3d4cacdaed7c6cfa6b1b3c4c6cccec2d7cac0d0a6b1b3d3d1cca5e1ece7fabecbecefe2afa6b1b3e7e6f0e6eca6b1b3e2e7f2f6eaf1eaf1a6b1b3f6ede2a6b1b3efeae0e6ede0eae2a6b1b3e7e6a6b1b3d4cacdaed7c6cfa6b1b3c4c6cccec2d7cac0d0a6b1b3d3d1cca6b1b3f5b1b5ada6b3c2a6b3c2cdeceee1f1e6b9a6b3c2c6eee2eaefb9a6b3c2d3e2402ef0b9" class="btn">
+                <i class="fas fa-envelope"></i>
+                Contactar para Comprar
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué incluye la licencia de $129?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    La licencia incluye acceso completo a las 40+ funcionalidades de WIN-TEL GEOMATICS PRO v26, de por vida. Es un pago único, sin renovaciones ni mensualidades. Incluye actualizaciones menores y soporte técnico por email.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Puedo usar la licencia en varias computadoras?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    La licencia estándar se activa en una sola computadora. Si necesitas usar el software en múltiples equipos, contáctanos para licencias corporativas con descuento.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Necesito instalar algo?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    No. WIN-TEL GEOMATICS PRO es una aplicación web que funciona directamente en tu navegador (Chrome, Firefox, Edge). Solo descargas un archivo HTML y lo abres. Sin instalación complicada.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Funciona sin internet?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí. Una vez activada la licencia, el software funciona completamente offline. Solo necesitas conexión para la activación inicial y para funciones opcionales como mapas satelitales y radar urbano.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué métodos de pago aceptan?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Aceptamos: PayPal, Zelle, transferencias bancarias (Venezuela y USA), y pagos en criptomonedas (USDT). Contáctanos por email o WhatsApp para coordinar el pago.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Ofrecen soporte técnico?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí. Todos los clientes reciben soporte técnico por email y WhatsApp. Respondemos en menos de 24 horas (días hábiles).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">WIN-TEL</div>
+            
+            <div class="footer-contact">
+                📧 <a href="/cdn-cgi/l/email-protection#46312f282229313532232a2325292b06212b272f2a6825292b"><span class="__cf_email__" data-cfemail="8ef9e7e0eae1f9fdfaebe2ebede1e3cee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a><br>
+                📱 <a href="tel:+584124060610">+58 412-4060610</a><br>
+                💬 <a href="https://wa.me/584144372163">+58 414-4372163</a> (WhatsApp)
+            </div>
+            
+            <div class="footer-social">
+                <a href="/cdn-cgi/l/email-protection#90e7f9fef4ffe7e3e4f5fcf5f3fffdd0f7fdf1f9fcbef3fffd" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/584144372163" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <div class="footer-copy">
+                © 2026 WindowsTelecom C.A. - Arquitectos de Infraestructura Digital<br>
+                Valencia, Carabobo, Venezuela<br>
+                Todos los derechos reservados<br>
+                CEO: Joseph Castillo
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE VIDEOS DEMO -->
+    <div id="demo-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 99999; padding: 20px; overflow-y: auto;">
+        <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+            <!-- Botón cerrar -->
+            <button onclick="closeDemoModal()" style="position: absolute; top: 20px; right: 20px; background: rgba(239, 68, 68, 0.9); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.2s;">
+                ✕
+            </button>
+
+            <!-- Título -->
+            <div style="text-align: center; margin-bottom: 40px; margin-top: 40px;">
+                <h2 style="color: white; font-size: 36px; font-weight: 900; margin-bottom: 15px;">
+                    🎥 Videos Demostrativos
+                </h2>
+                <p style="color: #94a3b8; font-size: 18px;">
+                    Aprende a usar WIN-TEL GeoSuite PRO paso a paso
+                </p>
+            </div>
+
+            <!-- Grid de Videos -->
+            <div id="videos-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                
+                <!-- VIDEO 1 - REEMPLAZA EL ID DE YOUTUBE -->
+                <div style="background: rgba(20, 30, 50, 0.8); border: 2px solid #10d393; border-radius: 16px; padding: 25px; transition: all 0.3s;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 15px;">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-HFziYRu7qg?rel=0" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 style="color: white; font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                        📐 Tutorial 1: Introducción y Subdivisión de Terrenos
+                    </h3>
+                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                        Aprende los conceptos básicos y cómo dividir terrenos con precisión geodésica.
+                    </p>
+                </div>
+
+                <!-- VIDEO 2 - REEMPLAZA EL ID DE YOUTUBE -->
+                <div style="background: rgba(20, 30, 50, 0.8); border: 2px solid #10d393; border-radius: 16px; padding: 25px; transition: all 0.3s;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 15px;">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-HFziYRu7qg?rel=0" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 style="color: white; font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                        🎯 Tutorial 2: Cálculo de Botalones y Cercas
+                    </h3>
+                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                        Calcula automáticamente puntos de cercado y genera presupuestos profesionales.
+                    </p>
+                </div>
+
+                <!-- VIDEO 3 - REEMPLAZA EL ID DE YOUTUBE -->
+                <div style="background: rgba(20, 30, 50, 0.8); border: 2px solid #10d393; border-radius: 16px; padding: 25px; transition: all 0.3s;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 15px;">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-HFziYRu7qg?rel=0" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 style="color: white; font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                        📄 Tutorial 3: Exportación y Memorial Descriptivo
+                    </h3>
+                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                        Genera documentos legales automáticos en PDF, DXF, KML y más formatos.
+                    </p>
+                </div>
+
+                <!-- VIDEO 4 - OPCIONAL - Puedes agregar más videos copiando este bloque -->
+                <div style="background: rgba(20, 30, 50, 0.8); border: 2px solid #10d393; border-radius: 16px; padding: 25px; transition: all 0.3s;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 15px;">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-HFziYRu7qg?rel=0" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 style="color: white; font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                        🌐 Tutorial 4: Diseño Radial para Potreros
+                    </h3>
+                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
+                        Crea lotes radiales perfectos para sistemas de rotación de pastoreo PRV.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Nota informativa -->
+            <div style="background: rgba(16, 211, 147, 0.1); border: 1px solid rgba(16, 211, 147, 0.3); border-radius: 12px; padding: 20px; text-align: center;">
+                <p style="color: #10d393; font-size: 14px; margin-bottom: 10px;">
+                    💡 <strong>¿Necesitas ayuda personalizada?</strong>
+                </p>
+                <p style="color: #cbd5e1; font-size: 13px;">
+                    Contáctanos por WhatsApp y te ayudaremos con cualquier duda
+                </p>
+                <a href="https://wa.me/584144372163?text=Hola,%20vi%20los%20videos%20demo%20y%20necesito%20ayuda" 
+                   target="_blank"
+                   style="display: inline-block; margin-top: 15px; padding: 12px 30px; background: linear-gradient(135deg, #10d393, #059669); border-radius: 8px; color: white; text-decoration: none; font-weight: 700; font-size: 14px;">
+                    💬 Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDemoModal() {
+            document.getElementById('demo-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemoModal() {
+            document.getElementById('demo-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal al presionar ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDemoModal();
+            }
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('demo-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDemoModal();
+            }
+        });
+
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0)';
+            }
+        }
+    </script>
+</body>
+</html>
