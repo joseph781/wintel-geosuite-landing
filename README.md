@@ -1,2 +1,2 @@
-# wintel-geosuite-landing
-WIN-TEL GeoSuite PRO Landing Page
+# WIN-TEL-AgroManager-PRO
+WIN-TEL-AgroManager-PRO
